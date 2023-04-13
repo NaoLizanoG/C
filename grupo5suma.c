@@ -1,18 +1,32 @@
 //Cadena, Flores y Lizano
 #include <stdio.h>
 
+
+
 int main() {
-    int n, i;
+    int n, i, a=1;
     float sum = 0;
 
-    printf("Ingrese un número entero: ");
+    printf("Ingrese un número entero positivo: \n");
     scanf("%d", &n);
 
-    for(i = 1; i <= n; i++) {
-        sum += 1.0 / i;
+    while (n<0){
+     printf("Cantidad invalida, ingrese otro número \n");
+    scanf("%d", &n);    
     }
 
-    printf("La suma de los primeros %d términos de la serie armónica es: %f", n, sum);
+    for(i = 1; i <= n; i++) {
+
+        if(i%2!=0){
+        sum += 1.0 / a;
+        }
+        else{
+            sum-= 1.0/a;
+        }
+        a=a+2;
+    }
+
+    printf("La suma de los primeros %d términos de la serie  es: %f", n, sum);
 
     return 0;
 }
