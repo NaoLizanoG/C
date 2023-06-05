@@ -30,7 +30,9 @@ c) ¿En qué año la carrera de Ingeniería de Software recibió la mayor cantid
 #include <time.h>
 
 int main() {
-    int alumnos[7][5];  
+    int alumnos[7][5], periodo[5]={0, 0, 0, 0, 0};  
+    int estudiantes=0, num_mayor=0;;
+
 
     srand(time(NULL)); 
     printf("El número de alumnos de cada carrera es:\n");
@@ -63,10 +65,21 @@ int main() {
         for (int j = 0; j < 5; j++) {
             alumnos[i][j] = rand() % 101;
             printf("Periodo anual %d: %d\n", j + 1, alumnos[i][j]);
-        }
-        
-        printf("\n");  
+            periodo[j]+=alumnos[i][j];
+            
     }
 
+    }
+printf("\n");
+      for (int j = 0; j < 5; j++)
+      
+  {
+     if (periodo[j]>periodo[num_mayor])
+            {
+                num_mayor=j;
+            }
+ printf("total del periodo anual %d es de %d\n",j+1, periodo[j]);
+  }
+   printf("El periodo anual con mas estudiantes fue %d", num_mayor+1);
     return 0;
 }
