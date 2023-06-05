@@ -17,18 +17,14 @@ En una Institución educativa se almacenan datos sobre el número de alumnos que
 7. Ingeniería Industrial.
 
 Escriba un programa que calcule:
-
-a) El año en que ingresó la mayor cantidad de alumnos a la universidad.
-
-b) La Carrera que recibió la mayor cantidad de alumnos en el último año.
-
-c) ¿En qué año la carrera de Ingeniería de Software recibió la mayor cantidad de alumnos? */
+ */
 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
+//Funcion para invocar las diferentes carreras
 void carreras(int i){
  switch (i + 1) {
             case 1:
@@ -55,14 +51,19 @@ void carreras(int i){
         }
 }
 
+
+
+
 int main() {
+    //definicion de variables
     int alumnos[7][5], periodo[5]={0, 0, 0, 0, 0};  
-    int estudiantes=0, num_mayor=0, carrera_mayor=0;
+    int estudiantes=0, num_mayor=0, carrera_mayor=0, software_mayor=0;
 
 
     srand(time(NULL)); 
     printf("El número de alumnos de cada carrera es:\n");
 
+//ciclo for para determinar el numero de alumnos de cada periodo anual por carreras
     for (int i = 0; i < 7; i++) {
        carreras(i);
         for (int j = 0; j < 5; j++) {
@@ -73,7 +74,12 @@ int main() {
     }
 
     }
+
+
 printf("\n");
+
+
+//ciclo for para responder el literal a: Año en que ingresó la mayor cantidad de alumnos a la universidad.
       for (int j = 0; j < 5; j++)
       
   {
@@ -83,9 +89,12 @@ printf("\n");
             }
  printf("total del periodo anual %d es de %d\n",j+1, periodo[j]);
   }
-   printf("\nEl periodo anual con mas estudiantes fue %d\n", num_mayor+1);
+   printf("\na) El periodo anual con mas estudiantes fue %d\n", num_mayor+1);
 
 
+
+
+//ciclo for para responder el literal b:La Carrera que recibió la mayor cantidad de alumnos en el último año.
 for (int i = 0; i < 7; i++)
 {
        if (alumnos[i][4]>alumnos[carrera_mayor][4])
@@ -96,8 +105,19 @@ for (int i = 0; i < 7; i++)
   
 }
 
-printf("La carrera con mas ingresos en el ultimo periodo anual fue ");
+printf("b) La carrera con mas ingresos en el ultimo periodo anual fue ");
 carreras(carrera_mayor);
 
+
+
+//Ciclo for para responder la preguta c:¿En qué año la carrera de Ingeniería de Software recibió la mayor cantidad de alumnos?
+for (int j = 0; j < 5; j++)
+{
+    if(alumnos[0][j]>alumnos[0][software_mayor]){
+        software_mayor=j;
+    }
+}
+
+printf("c) El periodo anual en el que Software tuvo mas alumnos fue el %d", software_mayor+1);
     return 0;
 }
