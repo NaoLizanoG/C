@@ -29,39 +29,42 @@ c) ¿En qué año la carrera de Ingeniería de Software recibió la mayor cantid
 #include <stdlib.h>
 #include <time.h>
 
+void carreras(int i){
+ switch (i + 1) {
+            case 1:
+                printf("\nIngenieria en Software\n");
+                break;
+            case 2:
+                printf("\nAdministracion\n");
+                break;
+            case 3:
+                printf("\nEconomia\n");
+                break;
+            case 4:
+                printf("\nRelaciones internacionales\n");
+                break;
+            case 5:
+                printf("\nMatematicas\n");
+                break;
+            case 6:
+                printf("\nContabilidad\n");
+                break;
+            case 7:
+                printf("\nIngenieria industrial\n");
+                break;
+        }
+}
+
 int main() {
     int alumnos[7][5], periodo[5]={0, 0, 0, 0, 0};  
-    int estudiantes=0, num_mayor=0;;
+    int estudiantes=0, num_mayor=0, carrera_mayor=0;
 
 
     srand(time(NULL)); 
     printf("El número de alumnos de cada carrera es:\n");
 
     for (int i = 0; i < 7; i++) {
-        switch (i + 1) {
-            case 1:
-                printf("Ingenieria en Software:\n");
-                break;
-            case 2:
-                printf("Administracion:\n");
-                break;
-            case 3:
-                printf("Economia:\n");
-                break;
-            case 4:
-                printf("Relaciones internacionales:\n");
-                break;
-            case 5:
-                printf("Matemáticas:\n");
-                break;
-            case 6:
-                printf("Contabilidad:\n");
-                break;
-            case 7:
-                printf("Ingenieria industrial:\n");
-                break;
-        }
-
+       carreras(i);
         for (int j = 0; j < 5; j++) {
             alumnos[i][j] = rand() % 101;
             printf("Periodo anual %d: %d\n", j + 1, alumnos[i][j]);
@@ -80,6 +83,21 @@ printf("\n");
             }
  printf("total del periodo anual %d es de %d\n",j+1, periodo[j]);
   }
-   printf("El periodo anual con mas estudiantes fue %d", num_mayor+1);
+   printf("\nEl periodo anual con mas estudiantes fue %d\n", num_mayor+1);
+
+
+for (int i = 0; i < 7; i++)
+{
+       if (alumnos[i][4]>alumnos[carrera_mayor][4])
+       {
+        carrera_mayor=i;
+       }
+       
+  
+}
+
+printf("La carrera con mas ingresos en el ultimo periodo anual fue ");
+carreras(carrera_mayor);
+
     return 0;
 }
