@@ -57,11 +57,11 @@ void carreras(int i){
 int main() {
     //definicion de variables
     int alumnos[7][5], periodo[5]={0, 0, 0, 0, 0};  
-    int estudiantes=0, num_mayor=0, carrera_mayor=0, software_mayor=0;
+    int num_mayor=0, carrera_mayor=0, software_mayor=0;
 
 
     srand(time(NULL)); 
-    printf("El número de alumnos de cada carrera es:\n");
+    printf("El numero de alumnos de cada carrera es:\n");
 
 //ciclo for para determinar el numero de alumnos de cada periodo anual por carreras
     for (int i = 0; i < 7; i++) {
@@ -110,7 +110,8 @@ carreras(carrera_mayor);
 
 
 
-//Ciclo for para responder la preguta c:¿En qué año la carrera de Ingeniería de Software recibió la mayor cantidad de alumnos?
+//Ciclo for para responder la preguta c:¿En qué año la carrera de Ingeniería de Software 
+//recibió la mayor cantidad de alumnos?
 for (int j = 0; j < 5; j++)
 {
     if(alumnos[0][j]>alumnos[0][software_mayor]){
